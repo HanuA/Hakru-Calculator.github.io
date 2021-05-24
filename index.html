@@ -8,24 +8,23 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=KoHo&display=swap" rel="stylesheet"> 
 
-        <link rel="stylesheet" href="css/Hakru.css">
+        <link rel="stylesheet" href="css/HakruStyle.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     </head>
     <body>
         <div class="container">
             <header>
-                    <h1>HAKRU <i class="fas fa-calculator"></i></h1><h3>
-                    <h3><a href="">Raw Input</a></h3> <h3><a href="">Button Input</a></h3>
+                    <h1>HAKRU <i class="fas fa-calculator"></i></h1>
             </header>
             <main>
-                <div class="openedCalc">
+                <div id="openedCalc">
                     <div class="result">WELCOME!</div>
-                    <p>To start calculating, choose one of the options in the NavBar. :)</p>
+                    <p>Let's start calculating. :)</p>
                 </div>
-                <div class="buttonCalc">
-                    <div class="result">RESULT</div>
-                    <div class="btn">|x|</div>
+                <div id="buttonCalc">
+                    <input type="text" id="res" name="fname">
+                    <div class="btn">| x |</div>
                     <div class="btn">(</div>
                     <div class="btn">)</div>
                     <div class="btn">C</div>
@@ -35,30 +34,24 @@
                     <div class="btn">÷</div>
                     <div class="btn">×</div>
                     <div class="btn">-</div>
-                    <div class="btn">sin</div>
+                    <div class="btn">sin()</div>
                     <div class="btn">7</div>
                     <div class="btn">8</div>
                     <div class="btn">9</div>
                     <div class="btn btn2">+</div>
-                    <div class="btn">cos</div>
+                    <div class="btn">cos()</div>
                     <div class="btn">4</div>
                     <div class="btn">5</div>
                     <div class="btn">6</div>
-                    <div class="btn">tan</div>
+                    <div class="btn">tan()</div>
                     <div class="btn">1</div>
                     <div class="btn">2</div>
                     <div class="btn">3</div>
                     <div class="btn btn3">=</div>
-                    <div class="btn">cotan</div>
+                    <div class="btn">cotan()</div>
                     <div class="btn">¹/ₓ</div>
                     <div class="btn">0</div>
                     <div class="btn">.</div>
-                </div>
-                <div class="rawCalc">
-                    <div class="result">RESULT</div>
-                    <input type="text" id="fname" name="fname">
-                    <div class="btn">CALCULATE</div>
-
                 </div>
             </main>
             <footer>
@@ -66,5 +59,7 @@
                     <div>Photo by <a href="https://unsplash.com/photos/xoU52jUVUXA">Kelly Sikkema</a> on <a href="https://unsplash.com/">Unsplash</a></div>
             </footer>
         </div>
+        <script src="js/HakruScript.js">
+        </script>
     </body>
 </html>
