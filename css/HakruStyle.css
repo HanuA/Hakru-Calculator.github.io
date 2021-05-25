@@ -6,7 +6,6 @@ body{
 
     background-image: url('img/kelly-sikkema-xoU52jUVUXA-unsplash.png');
     background-repeat: no-repeat;
-    background-position: cover cover;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -109,8 +108,13 @@ h1{
     border-radius: 10px;
     border: none;
 }
-.result{
-    justify-content: end;
+#openedCalc > .welcome{
+    color: #bbe1fa;
+    background-color: #0f4c75;
+    border-radius: 10px;
+    padding: 5px;
+
+    text-align: center;
 }
 #buttonCalc > .btn:hover{
     color: #c7e7fc;
