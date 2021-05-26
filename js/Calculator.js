@@ -35,7 +35,12 @@ class Calculator{
     const multiplyRegex = /×/g;
     equation = equation.replace(multiplyRegex, '*');
 
-    this.result.value = this.lastNum = eval(equation).toString();
+    try{
+      this.result.value = this.lastNum = eval(equation).toString();
+    } catch (e){
+      this.result.value = 'Error';
+      this.lastNum = null;
+    }
   }
 
   setupEvalButton(){
@@ -45,6 +50,11 @@ class Calculator{
   setupButtons(){
     for (let i = 0; i < this.buttons.length; i++){
         this.buttons[i].onclick = (e) => {
+            if(this.lastNum == null){
+                this.result.value = '';
+                this.lastNum = 0;
+            }
+
             let x = e.target;
             let lastAdded = this.result.value.charAt(this.result.value.length-1);
             switch (x.innerHTML) {
