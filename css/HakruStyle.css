@@ -1,3 +1,7 @@
+:root{
+  --mainAnimation: 2s;
+  --mainDelay: 3s;
+}
 body{
     font-family: 'KoHo', sans-serif;
     color: #bbe1fa;
@@ -65,10 +69,43 @@ h1{
     padding: 25px;
 
     grid-gap: 10px;
+
+    position: absolute;
+}
+@keyframes disappear{
+  0%{
+    opacity: 1;
+    display: grid;
+  }
+  100%{
+    opacity: 0;
+    display: none;
+  }
+}
+#openedCalc{
+    display: grid;
+    animation-name: disappear;
+    animation-duration: var(--mainAnimation);
+    animation-fill-mode: forwards;
+    /* animation-delay: calc(var(--mainDelay) + 1); */
+    animation-delay: 2s;
+}
+@keyframes appear{
+  0%{
+    opacity: 0;
+    display: grid;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 #buttonCalc{
-    display: none;
-    grid-template-columns: repeat(5);
+    animation-name: appear;
+    animation-duration: var(--mainAnimation);
+    animation-fill-mode: both;
+    animation-delay: var(--mainDelay);
+
+    grid-template-columns: repeat(5, 1fr);
 }
 #buttonCalc > .btn{
     display: flex;
