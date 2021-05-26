@@ -18,7 +18,7 @@ for (let i = 0; i < button.length; i++){
                 if (lastNum == 0) {
                     break;
                 }
-                else{
+                else {
                     result.value = result.value.slice(0, result.value.length - lastNum.length);
                     result.value += (x.innerHTML.slice(0, x.innerHTML.length - 2) + lastNum + "|");
 
@@ -29,7 +29,7 @@ for (let i = 0; i < button.length; i++){
                 if (lastNum == 0) {
                     break;
                 }
-                else{
+                else {
                     result.value = result.value.slice(0, result.value.length - lastNum.length);
                     result.value += (x.innerHTML.slice(0, x.innerHTML.length - 2) + lastNum + ")");
 
@@ -37,16 +37,24 @@ for (let i = 0; i < button.length; i++){
                 }
                 break;
             case "¹/ₓ":
-                result.value = result.value.slice(0, result.value.length - lastNum.length);
-                result.value += "1/" + lastNum;
+                if (lastNum == 0) {
+                    break;
+                }
+                else {
+                    result.value = result.value.slice(0, result.value.length - lastNum.length);
+                    result.value += "1/" + lastNum;
 
-                lastNum = 0;
+                    lastNum = 0;
+                }
                 break;
             case "⁺/₋":
-                result.value = result.value.slice(0, result.value.length - lastNum.length);
-                result.value += "-" + lastNum;
-                
-
+                if (lastNum == 0) {
+                    break;
+                }
+                else {
+                    result.value = result.value.slice(0, result.value.length - lastNum.length);
+                    result.value += "-" + lastNum;
+                }
                 break;
             case "=": case "^": case ".":
                 if (lastAdded == "" || lastAdded == "=" || lastAdded == "^" || lastAdded == "." ){
