@@ -70,7 +70,7 @@ h1{
     display: none;
     grid-template-columns: repeat(5);
 }
-#buttonCalc > .btn, .btn2, .btn3{
+#buttonCalc > .btn{
     display: flex;
 
     justify-content: center;
@@ -95,6 +95,11 @@ h1{
     grid-column: 5;
     grid-row: 6 / 8;
     height: auto;
+}
+#buttonCalc > .btn4{
+    grid-column: 4 / 6;
+    grid-row: 2;
+    width: auto;
 }
 #buttonCalc > .result{
     grid-column: 1 / 6;
@@ -150,14 +155,14 @@ h1{
     #buttonCalc > .btn{
         user-select: none;
         height: auto;
-        width: 40px;
+        width: auto;
     }
 }
 @media (max-height: 450px) {
     #buttonCalc > .btn{
         user-select: none;
         height: 8px;
-        width: 40px;
+        width: auto;
     }
     #buttonCalc > .btn2, #buttonCalc > .btn3{
         user-select: none;
@@ -185,6 +190,6 @@ h1{
     #buttonCalc > .btn{
         user-select: none;
         height: auto;
-        width: 40px;
+        width: auto;
     }
 }

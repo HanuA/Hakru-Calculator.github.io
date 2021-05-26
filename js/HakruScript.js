@@ -13,22 +13,40 @@ for (let i = 0; i < button.length; i++){
     button[i].onclick = function(e) {
         let x = e.target;
         let lastAdded = result.value.charAt(result.value.length-1);
-        console.log(lastNum)
         switch (x.innerHTML) {
-            case "| x |":
-                result.value += "|" + lastNum + "|";
-                lastNum = 0;
-                break;
-            case "sin(x)": case "cos(x)": case "tan(x)": case "cotan (x)":
+            case "|x|":
+                if (lastNum == 0) {
+                    break;
+                }
+                else{
+                    result.value = result.value.slice(0, result.value.length - lastNum.length);
+                    result.value += (x.innerHTML.slice(0, x.innerHTML.length - 2) + lastNum + "|");
 
-                lastNum = 0;
+                    lastNum = 0;
+                }
+                break;
+            case "sin (x)": case "cos (x)": case "tan (x)": case "cotan (x)": case "√ (x)":
+                if (lastNum == 0) {
+                    break;
+                }
+                else{
+                    result.value = result.value.slice(0, result.value.length - lastNum.length);
+                    result.value += (x.innerHTML.slice(0, x.innerHTML.length - 2) + lastNum + ")");
+
+                    lastNum = 0;
+                }
                 break;
             case "¹/ₓ":
+                result.value = result.value.slice(0, result.value.length - lastNum.length);
+                result.value += "1/" + lastNum;
 
                 lastNum = 0;
                 break;
-            case "√(x)":
-                lastNum = 0;
+            case "⁺/₋":
+                result.value = result.value.slice(0, result.value.length - lastNum.length);
+                result.value += "-" + lastNum;
+                
+
                 break;
             case "=": case "^": case ".":
                 if (lastAdded == "" || lastAdded == "=" || lastAdded == "^" || lastAdded == "." ){
@@ -36,23 +54,22 @@ for (let i = 0; i < button.length; i++){
                 }
                 if (lastAdded == "=") {
                     lastNum = 0;
+
+                    //class
+                    //vysledek dat do lastNum pro dalsi vypocet
+
+                }
+                if (lastAdded == "|") {
+                    if (x.innerHTML == ".") {
+                        break;
+                    }
                 }
                 else{
                     result.value += (x.innerHTML);
                     break;
                 }
-            case "+":
-            case "-":
-                if (lastAdded == "=" || lastAdded == "." ){
-                    break;
-                }
-                else{
-                    result.value += (x.innerHTML);
-                    break;
-                }
-            case "×":
-            case "÷":
-                if (lastAdded == "×" || lastAdded == "÷" || lastAdded == "^" || lastAdded == "." || lastAdded == "+" || lastAdded == "-"){
+            case "+": case "-": case "×": case "÷":
+                if (lastAdded == "" || lastAdded == "×" || lastAdded == "÷" || lastAdded == "^" || lastAdded == "." || lastAdded == "+" || lastAdded == "-"){
                     break;
                 }
                 else{
@@ -66,6 +83,12 @@ for (let i = 0; i < button.length; i++){
                 break;
             case "": case '<i class="fas fa-backspace"></i>':
                 result.value = result.value.slice(0, result.value.length - 1);
+                if (lastNum == 0) {
+                    break;
+                }
+                else{
+                    lastNum = lastNum.slice(0, lastNum.length - 1);
+                }
                 break;
             case "0": case "1": case "2": case "3": case "4": case "5": case "6": case "7": case "8": case "9":
                 if (lastNum == 0) {
